@@ -15,12 +15,13 @@ Feature: code breaker submits guess
 
 		Then the mark should be "<mark>"
 
+
 		Scenarios: all numbers correct
 
 			|code|guess|mark|
 			|1234|1234|++++|
 			|1234|1243|++--|
-			|1234|1432|+---|
+			|1234|4213|+---|
 			|1234|4321|----|
 
 		Scenarios: 3 numbers correct
@@ -28,21 +29,27 @@ Feature: code breaker submits guess
 			|code|guess|mark|
 			|1234|1235|+++|
 			|1234|1253|++-|
-			|1234|1532|+--|
+			|1234|1523|+--|
 			|1234|5321|---|
 
 		Scenarios: 2 numbers correct
 
 			|code|guess|mark|
 			|1234|1256|++|
-			|1234|1562|+-|
+			|1234|2267|+-|
 			|1234|5612|--|
 
 		Scenarios: 1 number correct
 
 			|code|guess|mark|
 			|1234|1567|+|
-			|1234|5671|-|
+			|1234|4567|-|
+
+		Scenarios: no matches
+
+			|code|guess|mark|
+			|1234|5678||
+
 
 
 
