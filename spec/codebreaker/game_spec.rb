@@ -30,69 +30,13 @@ module CodeBreaker
 
 		describe "#guess" do
 
-			before(:each) do
+			it 'sends the mark to the output' do
 
 				game.start('1234')
 
-			end
+				expect(test_output).to receive(:puts).with("++++")
 
-			context "with no matches" do
-
-				it "sends a mark with ''" do
-
-					expect(test_output).to receive(:puts).with('')
-
-					game.guess('5555')
-
-				end
-
-			end
-
-			context 'with 1 number match' do
-
-				it "sends a mark with '-'" do
-
-					expect(test_output).to receive(:puts).with('-')
-
-					game.guess('4567')
-
-				end
-
-			end
-
-			context 'with 1 exact match' do
-
-				it "sends a mark with '+'" do
-
-					expect(test_output).to receive(:puts).with('+')
-
-					game.guess('1567')
-
-				end
-
-			end
-
-			context 'with 2 number matches' do
-
-				it "sends a mark with '--'" do
-
-					expect(test_output).to receive(:puts).with('--')
-
-					game.guess('6712')
-
-				end
-
-			end
-
-			context 'with 1 number and 1 exact match, in order' do
-
-				it "sends a mark with '+-'" do
-
-					expect(test_output).to receive(:puts).with('+-')
-
-					game.guess('2535')
-
-				end
+				game.guess('1234')
 
 			end
 
