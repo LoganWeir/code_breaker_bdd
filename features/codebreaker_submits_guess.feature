@@ -7,6 +7,8 @@ Feature: code breaker submits guess
 	in the code, the mark includes a + sign. For each number in the guess that 
 	matches a value but not a position in the code, the mark includes a - sign.
 
+	Each position in the secret code can only be guessed once, with plus signs prioritized. Thus with a guess of 1134 against a secret code of 1234 three plus signs would be returned, while the number match in the second position would be ignored.
+
 	Scenario Outline: submit guess
 
 		Given the secret code is "<code>"
@@ -36,7 +38,7 @@ Feature: code breaker submits guess
 
 			|code|guess|mark|
 			|1234|1256|++|
-			|1234|2267|+-|
+			|1234|2267|+|
 			|1234|5612|--|
 
 		Scenarios: 1 number correct
@@ -50,6 +52,16 @@ Feature: code breaker submits guess
 			|code|guess|mark|
 			|1234|5678||
 
+		Scenarios: matches with duplicates
+
+			|code|guess|mark|
+			|1234|1155|+|
+			|1234|5115|-|
+			|1134|1155|++|
+			|1134|5115|+-|
+			|1134|5511|--|
+			|1134|1115|++|
+			|1134|5111|+-|
 
 
 

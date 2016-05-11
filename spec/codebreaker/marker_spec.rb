@@ -106,6 +106,18 @@ module CodeBreaker
 
 			end
 
+			context 'with 1 exact match duplicated in guess' do
+
+				it 'returns 0' do
+
+					marker = Marker.new('1234', '1155')
+
+					expect(marker.number_match_count).to equal(0)
+
+				end
+
+			end
+
 		end
 
 	end
